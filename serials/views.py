@@ -1,5 +1,5 @@
 from django.views import generic
-from .models import Serial, Cast
+from .models import Serial, User
 
 class SerialsView(generic.ListView):
     template_name = 'serials/list-serials.html'

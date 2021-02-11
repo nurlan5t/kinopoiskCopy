@@ -1,13 +1,27 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+    <body>
+    <h3 align="right">
+        <form action="/users/login/">
+                <input type="submit" value="LOGIN">
+        </form>
+        <form action="/users/register/">
+                <input type="submit" value="REGISTER">
+        </form>
+    </h3>
+    </body>
+</head>
+
 <head>
     <meta charset="UTF-8">
     <title>Serials</title>
     <h1 align="center">ADD NEW SERIAL</h1>
     <body>
     <h3 align="center">
-        <form action="/add-serial/" method="POST">
+        <form action="/add-serial/">
             {% csrf_token %}
                 <input type="submit" value="ADD">
         </form>
