@@ -5,11 +5,17 @@
 <head>
     <body>
     <h3 align="right">
+        <form action="/admin/">
+                <input type="submit" value="I am ADMIN">
+        </form>
         <form action="/users/login/">
                 <input type="submit" value="LOGIN">
         </form>
         <form action="/users/register/">
                 <input type="submit" value="REGISTER">
+        </form>
+        <form action="/wiki/">
+                <input type="submit" value="Wikipedia">
         </form>
     </h3>
     </body>
@@ -18,12 +24,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Serials</title>
-    <h1 align="center">ADD NEW SERIAL</h1>
     <body>
     <h3 align="center">
         <form action="/add-serial/">
-            {% csrf_token %}
-                <input type="submit" value="ADD">
+
+                <input type="submit" value="ADD NEW SERIAL">
         </form>
     </h3>
     </body>
@@ -32,16 +37,21 @@
 <body>
     <div>
         <ul>
-        <h1>ALL SERIALS:</h1>
+        <h1 align="center">ALL SERIALS:</h1><br>
             {% for serial in object_list %}
-                <h2>{{ serial.title }}</h2>
+                <a href="/detail-serial/{{ serial.id }}/"><p>{{ serial.title }}</p></a>
                 <h3>{{ serial.image }}</h3>
-                <h3>{{ serial.description }}</h3>
-                <h3>{{ serial.duration }} мин.</h3>
-                <h3>{{ serial.age_limit }} +</h3>
+                <h3>{{ serial.duration }} мин. ({{ serial.age_limit }} +)</h3>
+
+            <br>
+
             {% endfor %}
+
+
         </ul>
     </div>
+
+
 
 </body>
 </html>

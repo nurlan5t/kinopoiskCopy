@@ -27,17 +27,10 @@ class RegisterForm(forms.ModelForm):
         except User.DoesNotExist:
             pass
 
-    def validate_p(self):
-        validate_p = super().clean()
-        password = validate_p.get('password')
-        try:
-            user = User.objects.get(password=password)
-            if password.isdigit():
-                raise ValidationError("This password is entirely numeric")
-            if password.is_numeric():
-                raise ValidationError("This password is entirely numeric")
-        except User.DoesNotExist:
-            pass
+        password = clean.get('password')
+        if password.isdigit():
+            raise ValidationError('Password must not be all digit')
+
 
     def save(self, *args, **kwargs):
         user = super().save()

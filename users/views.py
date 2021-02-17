@@ -29,6 +29,7 @@ class LoginView(generic.FormView):
         if form.is_valid():
             login = form.authenticate_user()
             if login:
+
                 return HttpResponse(f'Yes you successfully loggined {login}!')
             else:
                 return HttpResponse('No such user!')
